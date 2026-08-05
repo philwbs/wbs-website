@@ -569,24 +569,108 @@ export default function WbsSite() {
                       <div
                         className="partner-network"
                         role="img"
-                        aria-label="WBS verbindet Sie mit Quansatech. Von dort führt der Leistungsweg weiter zu Cloud, Security und Support."
+                        aria-label="WBS verbindet Sie mit Quansatech. Von dort führt der Leistungsweg weiter zu Cloud, Security, Support und Microsoft 365."
                       >
-                        <svg className="partner-network__paths" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                        <svg className="partner-network__paths" viewBox="0 0 160 100" preserveAspectRatio="none" aria-hidden="true">
                           <defs>
-                            <marker id="partner-network-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                              <path d="M0 0L8 4L0 8Z" />
-                            </marker>
+                            <linearGradient id="partner-network-main-gold" x1="29" y1="50" x2="40" y2="50" gradientUnits="userSpaceOnUse">
+                              <stop offset="0" stopColor="#a86f10" />
+                              <stop offset=".55" stopColor="#f2cf7a" />
+                              <stop offset="1" stopColor="#c48a25" />
+                            </linearGradient>
+                            <linearGradient id="partner-network-branch-gold" x1="101" y1="50" x2="108" y2="50" gradientUnits="userSpaceOnUse">
+                              <stop offset="0" stopColor="#fff0b0" />
+                              <stop offset=".45" stopColor="#d99b28" />
+                              <stop offset="1" stopColor="#f6cf63" />
+                            </linearGradient>
+                            <filter id="partner-network-light-glow" x="-400%" y="-400%" width="900%" height="900%">
+                              <feGaussianBlur stdDeviation="1.6" result="blur" />
+                              <feMerge>
+                                <feMergeNode in="blur" />
+                                <feMergeNode in="SourceGraphic" />
+                              </feMerge>
+                            </filter>
+                            <filter id="partner-network-main-light-glow" x="-500%" y="-500%" width="1100%" height="1100%">
+                              <feGaussianBlur stdDeviation="2.35" result="mainBlur" />
+                              <feMerge>
+                                <feMergeNode in="mainBlur" />
+                                <feMergeNode in="mainBlur" />
+                                <feMergeNode in="SourceGraphic" />
+                              </feMerge>
+                            </filter>
                           </defs>
-                          <path d="M23 50H30" />
-                          <path d="M66 50L80 22" />
-                          <path d="M80 22L84 51" />
-                          <path d="M84 65L62 80" />
+                          <g className="partner-network__tracks">
+                            <path className="partner-network__track partner-network__track--main" d="M29 50C33 50 36 50 40 50" />
+                            <path className="partner-network__track" d="M101 48C106 45 101 13 105 13" />
+                            <path className="partner-network__track" d="M101 49C106 48 102 38 105 38" />
+                            <path className="partner-network__track" d="M101 51C106 52 102 63 105 63" />
+                            <path className="partner-network__track" d="M101 52C106 55 101 87 105 87" />
+                          </g>
+                          <g className="partner-network__afterglows">
+                            <path pathLength="1" className="partner-network__afterglow" d="M101 48C106 45 101 13 105 13" />
+                            <path pathLength="1" className="partner-network__afterglow" d="M101 49C106 48 102 38 105 38" />
+                            <path pathLength="1" className="partner-network__afterglow" d="M101 51C106 52 102 63 105 63" />
+                            <path pathLength="1" className="partner-network__afterglow" d="M101 52C106 55 101 87 105 87" />
+                          </g>
+                          <g className="partner-network__active-paths">
+                            <path pathLength="1" className="partner-network__path partner-network__path--main" d="M29 50C33 50 36 50 40 50" />
+                            <path pathLength="1" className="partner-network__path partner-network__path--cloud" d="M101 48C106 45 101 13 105 13" />
+                            <path pathLength="1" className="partner-network__path partner-network__path--security" d="M101 49C106 48 102 38 105 38" />
+                            <path pathLength="1" className="partner-network__path partner-network__path--support" d="M101 51C106 52 102 63 105 63" />
+                            <path pathLength="1" className="partner-network__path partner-network__path--microsoft" d="M101 52C106 55 101 87 105 87" />
+                          </g>
+                          <g className="partner-network__lights" filter="url(#partner-network-light-glow)">
+                            <ellipse className="partner-network__light partner-network__light--main" rx="1.7" ry="1" filter="url(#partner-network-main-light-glow)">
+                              <animateMotion dur="11.9s" repeatCount="indefinite" path="M29 50C33 50 37 50 43 50" keyPoints="0;0;1;1" keyTimes="0;.097;.242;1" calcMode="linear" />
+                              <animate attributeName="opacity" dur="11.9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;.091;.097;.224;.242;1" />
+                            </ellipse>
+                            <ellipse className="partner-network__light" rx="1.1" ry=".65">
+                              <animateMotion dur="11.9s" repeatCount="indefinite" path="M99 48C106 45 101 13 110 13" keyPoints="0;0;1;1" keyTimes="0;.387;.557;1" calcMode="linear" />
+                              <animate attributeName="opacity" dur="11.9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;.381;.387;.557;.574;1" />
+                            </ellipse>
+                            <ellipse className="partner-network__light" rx="1.1" ry=".65">
+                              <animateMotion dur="11.9s" repeatCount="indefinite" path="M99 49C106 48 102 38 110 38" keyPoints="0;0;1;1" keyTimes="0;.387;.557;1" calcMode="linear" />
+                              <animate attributeName="opacity" dur="11.9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;.381;.387;.557;.574;1" />
+                            </ellipse>
+                            <ellipse className="partner-network__light" rx="1.1" ry=".65">
+                              <animateMotion dur="11.9s" repeatCount="indefinite" path="M99 51C106 52 102 63 110 63" keyPoints="0;0;1;1" keyTimes="0;.387;.557;1" calcMode="linear" />
+                              <animate attributeName="opacity" dur="11.9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;.381;.387;.557;.574;1" />
+                            </ellipse>
+                            <ellipse className="partner-network__light" rx="1.1" ry=".65">
+                              <animateMotion dur="11.9s" repeatCount="indefinite" path="M99 52C106 55 101 87 110 87" keyPoints="0;0;1;1" keyTimes="0;.387;.557;1" calcMode="linear" />
+                              <animate attributeName="opacity" dur="11.9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;.381;.387;.557;.574;1" />
+                            </ellipse>
+                          </g>
                         </svg>
-                        <b className="partner-network__wbs">WBS</b>
-                        <b className="partner-network__partner">QUANSATECH</b>
-                        <i className="partner-network__service partner-network__service--cloud">CLOUD</i>
-                        <i className="partner-network__service partner-network__service--security">SECURITY</i>
-                        <i className="partner-network__service partner-network__service--support">SUPPORT</i>
+                        <div className="partner-network__wbs">WBS</div>
+                        <div className="partner-network__partner">
+                          <strong>QUANSATECH</strong>
+                          <small>TECHNOLOGIE PARTNER</small>
+                        </div>
+                        <div className="partner-network__service partner-network__service--cloud">
+                          <span className="partner-network__icon" aria-hidden="true">
+                            <svg viewBox="0 0 32 24"><path d="M8 21h16a6 6 0 0 0 1-11.92A9 9 0 0 0 7.6 7.2 7 7 0 0 0 8 21Z" /></svg>
+                          </span>
+                          <strong>CLOUD</strong>
+                        </div>
+                        <div className="partner-network__service partner-network__service--security">
+                          <span className="partner-network__icon" aria-hidden="true">
+                            <svg viewBox="0 0 28 32"><path d="M14 2c3.2 3 6.7 4.6 10.5 5.6v8.2c0 6.8-4.1 11.5-10.5 14.2C7.6 27.3 3.5 22.6 3.5 15.8V7.6C7.3 6.6 10.8 5 14 2Z" /><rect x="10" y="14" width="8" height="8" rx="1.5" /><path d="M12 14v-2.4a2 2 0 0 1 4 0V14" /></svg>
+                          </span>
+                          <strong>SECURITY</strong>
+                        </div>
+                        <div className="partner-network__service partner-network__service--support">
+                          <span className="partner-network__icon" aria-hidden="true">
+                            <svg viewBox="0 0 30 30"><path d="M5 17v-3a10 10 0 0 1 20 0v3" /><rect x="3" y="16" width="5" height="9" rx="2" /><rect x="22" y="16" width="5" height="9" rx="2" /><path d="M22 25c-1.8 2-4 3-7 3" /><circle cx="14" cy="28" r="1.5" /></svg>
+                          </span>
+                          <strong>SUPPORT</strong>
+                        </div>
+                        <div className="partner-network__service partner-network__service--microsoft">
+                          <span className="partner-network__icon partner-network__icon--microsoft" aria-hidden="true">
+                            <svg viewBox="0 0 28 28"><rect x="2" y="2" width="11" height="11" /><rect x="15" y="2" width="11" height="11" /><rect x="2" y="15" width="11" height="11" /><rect x="15" y="15" width="11" height="11" /></svg>
+                          </span>
+                          <strong className="partner-network__microsoft-label"><span>MICROSOFT</span><span>365</span></strong>
+                        </div>
                       </div>
                     )}
                   </div>
