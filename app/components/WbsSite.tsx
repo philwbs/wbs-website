@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import HeroBrowser from "./hero/HeroBrowser";
 
 const navItems = [
@@ -132,12 +133,12 @@ const faqItems = [
 
 function Brand({ light = false }: { light?: boolean }) {
   return (
-    <a className={`brand ${light ? "brand--light" : ""}`} href="#top" aria-label="WBS Startseite">
+    <Link className={`brand ${light ? "brand--light" : ""}`} href="/" aria-label="WBS Startseite">
       <span className="brand__letters">
         <span>W</span><b>B</b><span>S</span>
       </span>
       <span className="brand__name">WESNER BUSINESS SOLUTIONS</span>
-    </a>
+    </Link>
   );
 }
 
@@ -229,9 +230,9 @@ export default function WbsSite() {
         <div className="nav-shell">
           <Brand />
           <nav className="desktop-nav" aria-label="Hauptnavigation">
-            <button type="button" onClick={() => navigateTo("webdesign")}>
+            <Link className="desktop-nav__link" href="/webdesign">
               Webdesign
-            </button>
+            </Link>
             <div className="nav-menu">
               <button
                 className="nav-menu__trigger"
@@ -274,7 +275,10 @@ export default function WbsSite() {
           </button>
         </div>
         <div className={`mobile-nav ${menuOpen ? "mobile-nav--open" : ""}`}>
-          {navItems.map((item) => (
+          <Link className="mobile-nav__link" href="/webdesign" onClick={() => setMenuOpen(false)}>
+            Webdesign
+          </Link>
+          {navItems.slice(1).map((item) => (
             <button key={item.target} type="button" onClick={() => navigateTo(item.target)}>
               {item.label}
             </button>
