@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
-  other: { "codex-preview": "development" },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#11110f" };
