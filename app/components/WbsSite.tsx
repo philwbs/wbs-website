@@ -84,8 +84,8 @@ const solutionCards = [
   },
   {
     eyebrow: "IT-LÖSUNGEN",
-    title: "Die passende Technik. Der richtige Partner.",
-    text: "WBS klärt Ihren Bedarf und verbindet Sie direkt mit Quansatech – für IT-Support, Microsoft 365, Cloud, Backup, Monitoring, IT-Sicherheit, Netzwerktechnik und individuelle Software.",
+    title: "Die passende Technik. Die richtigen Partner.",
+    text: "WBS klärt Ihren Bedarf und verbindet Sie mit ausgewählten IT-Partnern – für IT-Support, Microsoft 365, Cloud, Backup, Monitoring, IT-Sicherheit, Netzwerktechnik und individuelle Software.",
     visual: "it",
   },
 ];
@@ -573,7 +573,7 @@ export default function WbsSite() {
                       <div
                         className="partner-network"
                         role="img"
-                        aria-label="WBS verbindet Sie mit Quansatech. Von dort führt der Leistungsweg weiter zu Cloud, Security, Support und Microsoft 365."
+                        aria-label="WBS verbindet Sie mit ausgewählten IT-Partnern. Von dort führt der Leistungsweg weiter zu Cloud, Security, Support und Microsoft 365."
                       >
                         <svg className="partner-network__paths" viewBox="0 0 160 100" preserveAspectRatio="none" aria-hidden="true">
                           <defs>
@@ -648,8 +648,8 @@ export default function WbsSite() {
                         </svg>
                         <div className="partner-network__wbs">WBS</div>
                         <div className="partner-network__partner">
-                          <strong>QUANSATECH</strong>
-                          <small>TECHNOLOGIE PARTNER</small>
+                          <strong>AUSGEWÄHLTE IT-PARTNER</strong>
+                          <small>TECHNOLOGIE-NETZWERK</small>
                         </div>
                         <div className="partner-network__service partner-network__service--cloud">
                           <span className="partner-network__icon" aria-hidden="true">
@@ -699,11 +699,11 @@ export default function WbsSite() {
             >
               <div className="network-banner__mark">W</div>
               <div>
-                <p className="eyebrow eyebrow--light">WBS × QUANSATECH</p>
+                <p className="eyebrow eyebrow--light">WBS × IT-PARTNER</p>
                 <h3>Ein Ansprechpartner. <em>Ein starkes IT-Netzwerk dahinter.</em></h3>
               </div>
               <p>
-                WBS bleibt Ihre persönliche Schnittstelle. Quansatech bringt bei
+                WBS bleibt Ihre persönliche Schnittstelle. Ausgewählte IT-Partner bringen bei
                 IT-Infrastruktur, Cloud, Backup, Security, Monitoring und Support
                 die technische Kompetenz in die Umsetzung.
               </p>
