@@ -179,8 +179,17 @@ em {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   min-width: max-content;
+}
+
+.brand__mark {
+  display: block;
+  width: 96px;
+  height: 35px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: contrast(1.06) saturate(1.03);
 }
 
 .brand__letters {
@@ -206,9 +215,10 @@ em {
   max-width: 108px;
   color: var(--ink);
   font-size: 0.56rem;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.13em;
   line-height: 1.45;
+  text-shadow: 0 .2px 0 currentColor;
 }
 
 .brand--light .brand__letters,
@@ -2786,13 +2796,19 @@ url("/philipp.jpeg") center top / cover no-repeat;
   }
 
   .nav-shell {
+    gap: 12px;
     min-height: 70px;
     margin-top: 8px;
+    padding: 0 10px 0 14px;
     border-radius: 16px;
   }
 
   .brand__name {
-    display: none;
+    display: block;
+    max-width: 76px;
+    font-size: .45rem;
+    letter-spacing: .1em;
+    line-height: 1.28;
   }
 
   .nav-cta {

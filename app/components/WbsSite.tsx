@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import HeroBrowser from "./hero/HeroBrowser";
 
@@ -133,10 +134,21 @@ const faqItems = [
 
 function Brand({ light = false }: { light?: boolean }) {
   return (
-    <Link className={`brand ${light ? "brand--light" : ""}`} href="/" aria-label="WBS Startseite">
-      <span className="brand__letters">
-        <span>W</span><b>B</b><span>S</span>
-      </span>
+    <Link
+      className={`brand ${light ? "brand--light" : ""}`}
+      href="/"
+      aria-label="Zur Startseite"
+      onClick={() => {
+        if (window.location.pathname === "/") window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
+    >
+      {light ? (
+        <span className="brand__letters">
+          <span>W</span><b>B</b><span>S</span>
+        </span>
+      ) : (
+        <Image className="brand__mark" src="/wbs-navigation-logo.png" alt="" width={96} height={35} priority />
+      )}
       <span className="brand__name">WESNER BUSINESS SOLUTIONS</span>
     </Link>
   );

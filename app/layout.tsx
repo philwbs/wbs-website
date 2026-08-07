@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: "Premium-Webdesign, persönliche Betreuung und digitale Lösungen für Unternehmen.",
   },
   robots: { index: true, follow: true },
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: { icon: "/favicon.ico", shortcut: "/favicon.ico" },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#11110f" };
