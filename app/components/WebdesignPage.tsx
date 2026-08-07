@@ -64,13 +64,7 @@ function Brand({ light = false }: { light?: boolean }) {
         if (window.location.pathname === "/") window.scrollTo({ top: 0, behavior: "smooth" });
       }}
     >
-      {light ? (
-        <span className="brand__letters">
-          <span>W</span><b>B</b><span>S</span>
-        </span>
-      ) : (
-        <Image className="brand__mark" src="/wbs-navigation-logo.png" alt="" width={96} height={35} priority />
-      )}
+      <Image className="brand__mark" src="/wbs-navigation-logo.png" alt="" width={96} height={35} priority={!light} />
       <span className="brand__name">WESNER BUSINESS SOLUTIONS</span>
     </Link>
   );
@@ -121,7 +115,7 @@ export default function WebdesignPage() {
                 <Link href="/#solution-it"><small>03</small><span>IT-Lösungen</span></Link>
               </div>
             </div>
-            <Link className="desktop-nav__link" href="/#projekte">Projekte</Link>
+            <Link className="desktop-nav__link" href="/projekte">Projekte</Link>
             <Link className="desktop-nav__link" href="/#ueber-wbs">Über WBS</Link>
           </nav>
           <Link className="nav-cta" href="/#kontakt">Erstgespräch <ArrowIcon /></Link>
@@ -138,7 +132,7 @@ export default function WebdesignPage() {
         <nav className={`mobile-nav ${menuOpen ? "mobile-nav--open" : ""}`} aria-label="Mobile Navigation">
           <Link className="mobile-nav__link" href="/webdesign" aria-current="page">Webdesign</Link>
           <Link className="mobile-nav__link" href="/#loesungen">Lösungen</Link>
-          <Link className="mobile-nav__link" href="/#projekte">Projekte</Link>
+          <Link className="mobile-nav__link" href="/projekte">Projekte</Link>
           <Link className="mobile-nav__link" href="/#ueber-wbs">Über WBS</Link>
           <div className="mobile-nav__solutions">
             <Link href="/#solution-fleet">Fleet Control</Link>
@@ -167,12 +161,35 @@ export default function WebdesignPage() {
             <div className="webdesign-hero__visual" aria-hidden="true" data-reveal>
               <div className="webdesign-hero__halo" />
               <div className="webdesign-hero__frame">
-                <div className="webdesign-hero__bar"><i /><i /><i /><span>WBS / DIGITALER AUFTRITT</span></div>
-                <div className="webdesign-hero__canvas">
-                  <span>STRATEGIE</span>
-                  <strong>Eine Website mit<br />klarer Wirkung.</strong>
-                  <div className="webdesign-hero__line" />
-                  <div className="webdesign-hero__tiles"><i /><i /><i /></div>
+                <div className="webdesign-hero__bar"><i /><i /><i /><span>WBS / LIVE DEMO</span></div>
+                <div className="webdesign-demo__viewport">
+                  <div className="webdesign-demo__page">
+                    <section className="webdesign-demo__hero">
+                      <Image src="/demo-realestate.webp" alt="" fill sizes="(max-width: 900px) 90vw, 48vw" />
+                      <div className="webdesign-demo__overlay" />
+                      <nav><b>STUDIO NOA</b><span>Projekte&nbsp;&nbsp; Leistungen&nbsp;&nbsp; Kontakt</span></nav>
+                      <div><small>ARCHITEKTUR & RÄUME</small><strong>Orte, die<br />in Erinnerung bleiben.</strong><i /></div>
+                    </section>
+                    <section className="webdesign-demo__intro">
+                      <small>01 · UNSER ANSPRUCH</small>
+                      <strong>Reduziert im Design.<br />Präzise in der Wirkung.</strong>
+                      <p>Eine klare digitale Bühne für Ideen, Räume und Projekte.</p>
+                    </section>
+                    <section className="webdesign-demo__cards"><i /><i /><i /></section>
+                    <section className="webdesign-demo__cta"><small>PROJEKT STARTEN</small><strong>Gemeinsam etwas Besonderes entwickeln.</strong></section>
+                  </div>
+                </div>
+              </div>
+              <div className="webdesign-demo__phone">
+                <span />
+                <div className="webdesign-demo__phone-viewport">
+                  <div className="webdesign-demo__phone-page">
+                    <Image src="/demo-realestate.webp" alt="" fill sizes="190px" />
+                    <i />
+                    <b>STUDIO NOA</b>
+                    <strong>Orte, die<br />bleiben.</strong>
+                    <small>PROJEKTE ENTDECKEN</small>
+                  </div>
                 </div>
               </div>
               <div className="webdesign-hero__note webdesign-hero__note--top"><small>01</small> DESIGN</div>

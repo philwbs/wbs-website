@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import HeroBrowser from "./hero/HeroBrowser";
+import { portfolioProjects } from "../data/projects";
 
 const navItems = [
   { label: "Webdesign", target: "webdesign" },
@@ -17,6 +18,8 @@ const heroWords = [
   "Wirkung zeigen.",
   "Wachstum begleiten.",
 ];
+
+const projects = portfolioProjects.slice(0, 3);
 
 const services = [
   {
@@ -37,36 +40,6 @@ const services = [
     title: "IT & Digitalisierung",
     text: "Über ein verlässliches Partnernetzwerk finden wir die Lösung, die zu Ihrem Unternehmen und Ihren Abläufen passt.",
     tags: ["IT-Betreuung", "Cloud", "Security", "Automatisierung"],
-  },
-];
-
-const projects = [
-  {
-    category: "GASTRONOMIE",
-    title: "Restaurant-Webdesign",
-    copy: "Atmosphärischer Premium-Auftritt für Restaurants, Hotels und Cafés – klar aufgebaut, hochwertig gestaltet und auf Reservierungen ausgerichtet.",
-    theme: "restaurant",
-    browserTitle: "SALZ & FLAMME",
-    browserSubtitle: "GENUSS, DER BLEIBT.",
-    image: "/demo-restaurant.webp",
-  },
-  {
-    category: "BAU & ERDBAU",
-    title: "Website für Bauunternehmen",
-    copy: "Eine kraftvolle Außendarstellung für Betriebe, die Kompetenz zeigen, Vertrauen schaffen und mehr qualifizierte Anfragen erhalten möchten.",
-    theme: "construction",
-    browserTitle: "HINTERBERGER",
-    browserSubtitle: "BAUEN. BEWEGEN. BEGEISTERN.",
-    image: "/demo-construction.webp",
-  },
-  {
-    category: "IMMOBILIEN & ARCHITEKTUR",
-    title: "Immobilien-Webdesign",
-    copy: "Ruhige Premium-Präsentation für Makler, Architekten und Bauträger – mit klarer Nutzerführung und überzeugender Objektwirkung.",
-    theme: "realestate",
-    browserTitle: "RAUMWERK",
-    browserSubtitle: "WO ZUKUNFT ZUHAUSE IST.",
-    image: "/demo-realestate.webp",
   },
 ];
 
@@ -142,13 +115,7 @@ function Brand({ light = false }: { light?: boolean }) {
         if (window.location.pathname === "/") window.scrollTo({ top: 0, behavior: "smooth" });
       }}
     >
-      {light ? (
-        <span className="brand__letters">
-          <span>W</span><b>B</b><span>S</span>
-        </span>
-      ) : (
-        <Image className="brand__mark" src="/wbs-navigation-logo.png" alt="" width={96} height={35} priority />
-      )}
+      <Image className="brand__mark" src="/wbs-navigation-logo.png" alt="" width={96} height={35} priority={!light} />
       <span className="brand__name">WESNER BUSINESS SOLUTIONS</span>
     </Link>
   );
@@ -266,9 +233,7 @@ export default function WbsSite() {
                 </button>
               </div>
             </div>
-            <button type="button" onClick={() => navigateTo("projekte")}>
-              Projekte
-            </button>
+            <Link className="desktop-nav__link" href="/projekte">Projekte</Link>
             <button type="button" onClick={() => navigateTo("ueber-wbs")}>
               Über WBS
             </button>
@@ -291,9 +256,15 @@ export default function WbsSite() {
             Webdesign
           </Link>
           {navItems.slice(1).map((item) => (
-            <button key={item.target} type="button" onClick={() => navigateTo(item.target)}>
-              {item.label}
-            </button>
+            item.target === "projekte" ? (
+              <Link className="mobile-nav__link" href="/projekte" key={item.target} onClick={() => setMenuOpen(false)}>
+                {item.label}
+              </Link>
+            ) : (
+              <button key={item.target} type="button" onClick={() => navigateTo(item.target)}>
+                {item.label}
+              </button>
+            )
           ))}
           <div className="mobile-nav__solutions">
             <button type="button" onClick={() => navigateTo("solution-fleet")}>Fleet Control</button>
@@ -340,9 +311,7 @@ export default function WbsSite() {
                 <button className="button button--gold" type="button" onClick={() => navigateTo("kontakt")}>
                   Projekt unverbindlich besprechen <ArrowIcon />
                 </button>
-                <button className="button button--ghost" type="button" onClick={() => navigateTo("projekte")}>
-                  Projekte entdecken
-                </button>
+                <Link className="button button--ghost" href="/projekte">Projekte entdecken</Link>
               </div>
 
               <div className="hero__trust" data-reveal>
@@ -492,6 +461,9 @@ export default function WbsSite() {
               Transparenz ist Teil der Marke: Diese Entwürfe sind als Demo-Konzepte
               gekennzeichnet und keine erfundenen Kundenreferenzen.
             </p>
+            <div className="projects__all" data-reveal>
+              <Link className="button button--gold" href="/projekte">Alle Projekte ansehen <ArrowIcon /></Link>
+            </div>
           </div>
         </section>
 
@@ -736,21 +708,22 @@ export default function WbsSite() {
       </p>
 
       <h2 data-reveal>
-        Nicht der nächste anonyme Anbieter.
+        Nicht irgendein Anbieter.
         <br />
-        <em>Ihr persönlicher Lösungspartner.</em>
+        <em>Ihr persönlicher Partner für Lösungen, die wirklich passen.</em>
       </h2>
 
       <p className="about__lead" data-reveal>
-        „Wenn ein Unternehmen digital besser aufgestellt werden soll,
-        soll es heißen: Ruf den Wesner an – der kümmert sich.“
+        „Mein Anspruch ist, dass Unternehmen in WBS einen Partner finden,
+        der zuhört, Verantwortung übernimmt und die richtige Lösung möglich macht.“
       </p>
 
       <p data-reveal>
-        Ich bin Philipp Wesner, Gründer von Wesner Business Solutions.
-        Meine Stärke liegt darin, Menschen, Unternehmen und die richtigen
-        Lösungen zusammenzubringen. Dabei zählt für mich nicht der schnelle
-        Verkauf, sondern eine Zusammenarbeit, die langfristig funktioniert.
+        Ich bin Philipp Wesner, Gründer von Wesner Business Solutions. Meine Stärke
+        liegt darin, genau zuzuhören, den tatsächlichen Bedarf zu erkennen und Menschen,
+        Unternehmen und die richtigen Lösungen zusammenzubringen. Nicht der schnelle
+        Abschluss steht für mich im Mittelpunkt, sondern eine persönliche Zusammenarbeit
+        und Lösungen, die langfristig funktionieren.
       </p>
 
       <div className="about__values" data-reveal>
