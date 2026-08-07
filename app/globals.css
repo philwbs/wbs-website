@@ -4652,11 +4652,14 @@ body{--font-sans:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;--fon
 }
 
 .portfolio-preview {
+  position: relative;
+  top: 0;
   min-height: 780px;
   color: #fff;
   background: #181916;
-  transform: translateY(0);
-  will-change: transform;
+  backface-visibility: hidden;
+  contain: layout paint style;
+  will-change: top;
 }
 
 .portfolio-project__visual.is-visible .portfolio-device--desktop .portfolio-preview {
@@ -4673,6 +4676,7 @@ body{--font-sans:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;--fon
   padding: 28px 31px;
   overflow: hidden;
   background: #171815;
+  backface-visibility: hidden;
 }
 
 .portfolio-preview__hero::after {
@@ -4716,10 +4720,11 @@ body{--font-sans:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;--fon
 .portfolio-preview__headline small,
 .portfolio-preview__content small {
   margin-bottom: 14px;
-  color: var(--gold-light);
+  color: #f5ca67;
   font-size: .58rem;
   font-weight: 800;
   letter-spacing: .18em;
+  text-shadow: 0 1px 12px rgba(185,128,23,.18);
 }
 
 .portfolio-preview__headline strong {
@@ -4738,18 +4743,20 @@ body{--font-sans:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;--fon
 .portfolio-preview__content {
   min-height: 225px;
   padding: 38px 34px;
-  background: linear-gradient(145deg, #201c18, #141512);
-  color: #f7f1e5;
+  background: linear-gradient(145deg, #28231c, #161713);
+  color: #fff6e7;
+  backface-visibility: hidden;
 }
 
 .portfolio-preview__content strong {
   display: block;
   max-width: 350px;
-  color: #f7f1e5;
+  color: #fff6e7;
   font-size: 1.65rem;
-  font-weight: 650;
+  font-weight: 700;
   letter-spacing: -.04em;
   line-height: 1.08;
+  text-shadow: 0 1px 18px rgba(0,0,0,.32);
 }
 
 .portfolio-preview__services {
@@ -4764,13 +4771,13 @@ body{--font-sans:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;--fon
   gap: 8px;
   min-width: 0;
   padding: 13px 12px;
-  border: 1px solid rgba(232,189,97,.25);
+  border: 1px solid rgba(244,202,103,.38);
   border-radius: 9px;
-  background: rgba(255,255,255,.045);
+  background: rgba(255,246,231,.085);
 }
 
 .portfolio-preview__services i {
-  color: var(--gold-light);
+  color: #f5ca67;
   font-family: var(--font-serif), Georgia, serif;
   font-size: .58rem;
   font-style: italic;
@@ -4779,11 +4786,12 @@ body{--font-sans:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;--fon
 
 .portfolio-preview__services b {
   overflow-wrap: anywhere;
-  color: #fffaf0;
-  font-size: .67rem;
+  color: #f8ecd9;
+  font-size: .7rem;
   font-weight: 800;
   letter-spacing: .04em;
   line-height: 1.25;
+  text-shadow: 0 1px 10px rgba(0,0,0,.38);
 }
 
 .portfolio-preview__tiles {
@@ -4934,6 +4942,16 @@ body{--font-sans:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;--fon
   background: linear-gradient(145deg, #23241f, #151613);
 }
 
+/* SALZ & FLAMME: the lower service panel stays fully legible at every scroll position. */
+.portfolio-preview--restaurant .portfolio-preview__content strong,
+.portfolio-preview--restaurant .portfolio-preview__services b {
+  color: #fffdf7;
+  opacity: 1;
+  filter: none;
+  animation: none;
+  transition: none;
+}
+
 .portfolio-preview--realestate .portfolio-preview__hero::after {
   background: linear-gradient(90deg, rgba(18,18,16,.9), rgba(18,18,16,.12));
 }
@@ -4965,15 +4983,15 @@ body{--font-sans:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;--fon
 }
 
 @keyframes portfolio-preview-scroll {
-  0%, 18% { transform: translateY(0); }
-  58%, 78% { transform: translateY(-298px); }
-  100% { transform: translateY(0); }
+  0%, 18% { top: 0; }
+  58%, 78% { top: -298px; }
+  100% { top: 0; }
 }
 
 @keyframes portfolio-preview-phone-scroll {
-  0%, 20% { transform: translateY(0); }
-  60%, 80% { transform: translateY(-205px); }
-  100% { transform: translateY(0); }
+  0%, 20% { top: 0; }
+  60%, 80% { top: -205px; }
+  100% { top: 0; }
 }
 
 .portfolio-note {

@@ -4,3 +4,14 @@
 @media(max-width:900px){.hero-showcase{width:100%;justify-self:stretch}.hero-browser__viewport{height:clamp(430px,66vw,560px)}}
 @media(max-width:620px){.hero-browser{border-radius:15px}.hero-browser__chrome{height:66px}.hero-browser__window-actions{top:13px;left:12px}.hero-browser__tab{top:5px;left:61px;height:26px}.hero-browser__toolbar{right:9px;bottom:8px;left:9px;grid-template-columns:18px 1fr 18px}.hero-browser__toolbar>span:nth-child(2),.hero-browser__toolbar>span:nth-child(3){display:none}.hero-browser__viewport{height:clamp(350px,86vw,470px)}.industry-site__nav{grid-template-columns:1fr auto;height:44px;padding:0 17px}.industry-site__nav>span,.industry-site__nav>i{display:none}.industry-site__copy{width:76%;padding:26px 0 0 22px}.industry-site__copy h3{font-size:clamp(1.65rem,8.2vw,2.5rem)}.industry-site__copy p{display:none}.industry-site__cta{margin-top:15px}.industry-site__proof>span{padding:0 5px;text-align:center}.industry-site__proof small{display:none}.industry-site__services{grid-template-columns:1.2fr repeat(3,.8fr);padding:12px}.industry-site__services>div small,.industry-site__services>span small{display:none}.industry-site__services>span{padding-left:8px}.hero-showcase__footer{justify-content:center}.hero-showcase__footer>p{display:none}}
 @media(prefers-reduced-motion:reduce){.industry-site,.industry-site.is-active{transform:none;transition:opacity 180ms ease,visibility 0s}}
+
+/* Startseiten-Hero: Restaurant-only contrast correction. Gold labels remain inherited. */
+.industry-site--restaurant .industry-site__services strong {
+  color: #f5efe4;
+  opacity: 1;
+}
+
+.industry-site--restaurant .industry-site__services > span {
+  color: #eee7dc;
+  opacity: 1;
+}
